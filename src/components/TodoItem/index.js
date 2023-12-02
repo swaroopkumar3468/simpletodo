@@ -15,6 +15,12 @@ const TodoItem = props => {
       <button type="button" className="delete-btn" onClick={onDeleteTodo}>
         Delete
       </button>
+      <button type="button" className="delete-btn" onClick={onDeleteTodo}>
+        Edit
+      </button>
+      <button type="button" className="delete-btn" onClick={onDeleteTodo}>
+        Save
+      </button>
     </li>
   )
 }

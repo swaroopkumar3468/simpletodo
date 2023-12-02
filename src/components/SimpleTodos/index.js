@@ -42,6 +42,11 @@ const initialTodosList = [
 class SimpleTodos extends Component {
   state = {
     todosList: initialTodosList,
+    userText: '',
+  }
+
+  userInput = event => {
+    this.setState({userText: event.target.value})
   }
 
   deleteTodo = id => {
@@ -53,13 +58,25 @@ class SimpleTodos extends Component {
     })
   }
 
+  addTodo = () => {
+    const {userText} = this.state
+    const trimWord = userText.split()
+    console.log(trimWord)
+  }
+
   render() {
-    const {todosList} = this.state
+    const {todosList, userText} = this.state
 
     return (
       <div className="app-container">
         <div className="simple-todos-container">
           <h1 className="heading">Simple Todos</h1>
+          <div>
+            <input type="text" value={userText} onChange={this.userInput} />
+            <button type="button" onClick={this.addTodo}>
+              Add
+            </button>
+          </div>
           <ul className="todos-list">
             {todosList.map(eachTodo => (
               <TodoItem
